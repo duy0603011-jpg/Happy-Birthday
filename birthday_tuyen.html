@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Happy Birthday Tuyến ❤</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Dancing+Script:wght@500;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose: #e8637a;
+  --deep-rose: #c0384f;
+  --blush: #f7c5ce;
+  --cream: #fdf6f0;
+  --gold: #d4a054;
+  --gold-light: #f0d090;
+  --dark: #130608;
+  --dark2: #1e0a10;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html { scroll-behavior: smooth; }
+
+/* Thêm FPS Stabilizer */
+body {
+  background: var(--dark);
+  font-family: 'Cormorant Garamond', serif;
+  overflow-x: hidden;
+  color: #fff;
+  position: relative;
+}
+
+/* ====== HP PARTICLES (Hạt nền chìm sâu) ====== */
+#particles {
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 0;
+  overflow: hidden;
+}
+.pt {
+  position: absolute;
+  border-radius: 50%;
+  animation: ptFloat linear infinite;
+  opacity: 0;
+}
+@keyframes ptFloat {
+  0%   { transform: translateY(110vh) scale(0) rotate(0deg); opacity:0; }
+  10%  { opacity:1; }
+  90%  { opacity:0.7; }
+  100% { transform: translateY(-10vh) scale(1) rotate(360deg); opacity:0; }
+}
+
+/* ====== HIỆU ỨNG HOA & TIM RƠI (Đã tối ưu cực mạnh) ====== */
+.falling-container {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; 
+  z-index: 9999; 
+  overflow: hidden;
+}
+.petal, .heart-fall { 
+  position: absolute; 
+  top: -10vh; 
+  will-change: transform, opacity; 
+  backface-visibility: hidden; 
+  transform: translate3d(0,0,0); 
+  animation: fall linear infinite; 
+  pointer-events: none; 
+  user-select: none; 
+} 
+@keyframes fall { 
+  0% { transform: translate3d(0,-10vh,0) rotate(0deg); opacity: 0; } 
+  10% { opacity: .9; } 
+  100% { transform: translate3d(var(--drift, 40px),110vh,0) rotate(360deg); opacity: 0; } 
+} 
+
+/* ====== HERO (PHẦN 1) ====== */
+#hero {
+  min-height: 100svh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  padding: 2rem 1.2rem 3rem;
+  z-index: 10;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 100% 100% at 50% 30%, #3d0a1a 0%, #1a0408 55%, #000 100%);
+  z-index: -2;
+}
+.hero-bg::after {
+  content:'';
+  position: absolute; inset:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 15% 20%, rgba(200,56,79,0.22) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 85% 75%, rgba(212,160,84,0.15) 0%, transparent 70%);
+}
+
+.hero-photos-container {
+  position: absolute; inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 5; 
+}
+
+/* Vòng xoay trang trí */
+.ring {
+  position: absolute; border-radius: 50%;
+  border: 1px solid;
+  left:50%; top:45%;
+  transform: translate(-50%,-50%);
+  animation: ringSpin linear infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+.ring-1 { width:280px; height:280px; border-color:rgba(232,99,122,0.15); animation-duration:20s; }
+.ring-2 { width:420px; height:420px; border-color:rgba(212,160,84,0.08); animation-duration:35s; animation-direction:reverse; }
+@keyframes ringSpin {
+  from { transform: translate(-50%,-50%) rotate(0deg); }
+  to   { transform: translate(-50%,-50%) rotate(360deg); }
+}
+
+.hero-content {
+  position: relative; 
+  z-index: 8; 
+  text-align: center;
+  animation: heroIn 1.6s cubic-bezier(0.16,1,0.3,1) both;
+  pointer-events: none; 
+}
+.hero-content * { pointer-events: none; } 
+
+@keyframes heroIn {
+  from { opacity:0; transform:translateY(50px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+.hero-label {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.1rem;
+  color: var(--gold);
+  letter-spacing: 0.25em;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.2rem, 14vw, 6rem);
+  font-weight: 700;
+  line-height: 1.15; 
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.2em; 
+}
+.hero-title .t1 {
+  display: block;
+  background: linear-gradient(135deg, #fff 0%, var(--blush) 35%, var(--rose) 65%, var(--gold) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(232,99,122,0.6));
+}
+.hero-title .t2 {
+  display: block;
+  font-style: italic;
+  font-size: 0.58em;
+  background: linear-gradient(120deg, var(--gold-light), var(--gold), #c8943a);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+.hero-name {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2.8rem, 12vw, 5rem);
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 0 40px rgba(232,99,122,0.8), 0 0 80px rgba(232,99,122,0.4);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.8rem;
+}
+
+/* ====== KHUNG ẢNH TRÁI TIM (Đã thêm Translate3d và Contain) ====== */
+.photo-heart-frame {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  cursor: pointer;
+  clip-path: url(#smoothHeart);
+  -webkit-clip-path: url(#smoothHeart);
+  z-index: 6;
+  pointer-events: auto; 
+  animation: floatRandom linear infinite;
+  
+  /* TỐI ƯU CỰC MẠNH */
+  will-change: transform, opacity; 
+  transform: translate3d(0,0,0); 
+  backface-visibility: hidden; 
+  contain: layout style paint; 
+}
+
+.photo-heart-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-heart-frame:hover {
+  z-index: 7; 
+}
+
+@keyframes floatRandom { 
+  0% { transform: translate3d(0,110vh,0) scale(var(--scale)) rotate(0deg); opacity: 0; } 
+  10% { opacity: .82; } 
+  100% { transform: translate3d(var(--rand-x),-20vh,0) scale(var(--scale)) rotate(var(--rand-r)); opacity: 0; } 
+} 
+
+/* ====== LIGHTBOX ====== */
+/* ====== LIGHTBOX ====== */
+#lightbox {
+  display:none; 
+  position:fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100vw; 
+  height: 100svh; /* Dùng svh để chuẩn xác trên mobile, không bị thanh URL che */
+  z-index: 100000; /* Tăng z-index lên mức cao nhất */
+  background: rgba(0,0,0,0.95);
+  align-items:center; 
+  justify-content:center;
+  backdrop-filter: blur(8px);
+}
+#lightbox.open { display:flex; }
+#lightbox img {
+  max-width:90vw; max-height:80svh;
+  border-radius:12px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+  animation: lbIn 0.3s ease;
+  object-fit: contain;
+}
+@keyframes lbIn {
+  from { opacity:0; transform:scale(0.85); }
+  to   { opacity:1; transform:scale(1); }
+}
+.lb-close {
+  position:absolute; top:1.2rem; right:1.2rem;
+  width:40px; height:40px; border-radius:50%;
+  background:rgba(255,255,255,0.1);
+  border:none; color:#fff; font-size:2rem;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer;
+}
+
+/* ====== MESSAGE SECTION ====== */
+#message {
+  position:relative; z-index: 20;
+  padding: 5rem 1.5rem;
+  background: #0d0205;
+}
+
+.msg-card {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+  background: linear-gradient(145deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  border: 1px solid rgba(232,99,122,0.2);
+  border-radius: 24px;
+  padding: 2.2rem 1.8rem;
+  backdrop-filter: blur(20px);
+}
+
+.msg-to {
+  font-family:'Playfair Display',serif; font-style:italic;
+  font-size:2rem; text-align:center;
+  background:linear-gradient(135deg,#fff,var(--blush),var(--rose));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+
+.msg-body {
+  font-family:'Cormorant Garamond',serif;
+  font-size: 1.1rem; line-height: 1.8;
+  color: rgba(255,255,255,0.85);
+  font-weight: 300;
+}
+.msg-hi { color: var(--blush); font-style: italic; }
+.msg-name { font-family:'Dancing Script',cursive; font-size:1.2em; color: var(--rose); }
+
+/* ====== FOOTER ====== */
+#footer {
+  text-align:center; padding:3rem 1rem; background:#000;
+  position:relative; z-index: 20;
+}
+.footer-text { font-family:'Dancing Script',cursive; font-size:1.4rem; color:rgba(232,99,122,0.6); }
+
+/* ====== TỐI ƯU CỰC LỚN CHO MOBILE ====== */
+@media (max-width: 768px) { 
+  .ring, #particles { display: none; } 
+  .hero-title { filter: none; } 
+  .photo-heart-frame { 
+    width: 95px; height: 95px; 
+    animation-duration: 22s !important; 
+  } 
+} 
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position: absolute;">
+  <defs>
+    <clipPath id="smoothHeart" clipPathUnits="objectBoundingBox">
+      <path d="M 0.5, 0.24 C 0.46, 0.08 0.31, 0 0.17, 0 C 0.06, 0 0, 0.09 0, 0.24 C 0, 0.49 0.24, 0.72 0.5, 0.95 C 0.76, 0.72 1, 0.49 1, 0.24 C 1, 0.09 0.94, 0 0.83, 0 C 0.69, 0 0.54, 0.08 0.5, 0.24 Z"/>
+    </clipPath>
+  </defs>
+</svg>
+
+<div class="falling-container" id="fallingContainer"></div>
+<div id="particles"></div>
+
+<div id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">×</button>
+  <img id="lb-img" src="" alt="Phóng to">
+</div>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="ring ring-1"></div>
+  <div class="ring ring-2"></div>
+
+  <div class="hero-photos-container" id="photoContainer"></div>
+
+  <div class="hero-content">
+    <div class="hero-label">✦ Gửi đến người đặc biệt ✦</div>
+    <h1 class="hero-title">
+      <span class="t1">Happy</span>
+      <span class="t2">Birthday</span>
+    </h1>
+    <div class="hero-name">Tuyến ❤</div>
+  </div>
+</section>
+
+<section id="message">
+  <div class="msg-card">
+      <div class="msg-to">Tuýn của mình</div>
+      <br>
+    <div class="msg-body">
+      <p>Hôm nay là một ngày vô cùng đặc biệt – ngày <span class="msg-hi">thiên thần của mình</span> thêm một tuổi mới. Thật tuyệt vời khi đồng hành cùng cậu hơn một năm qua. Cảm ơn <span class="msg-name">Tuýn</span> vì đã luôn bao dung, kiên nhẫn và dành trọn những điều <span class="msg-hi">"dịu dàng"</span> nhất cho mình.</p>
+      <p>Tuổi mới, chúc <span class="msg-hi">bạn iu</span> ngày càng rạng rỡ, công việc nhiều thuận lợi và sớm hoàn thành được những dự định mà cậu đang ấp ủ.</p>
+      <p>Mình không hứa sẽ mang đến cho cậu một cuộc đời hoàn hảo không tì vết, nhưng mình hứa sẽ dùng tất cả sự chân thành của mình để cùng <span class="msg-name">Tuyến</span> tạo nên những năm tháng hạnh phúc nhất.</p>
+      <p>Sinh nhật thật vui và ấm áp nhé, thương <span class="msg-name">Tuyến</span>!</p>
+      <br>
+      <p style="font-family:'Dancing Script',cursive; font-size:1.4em; color:var(--blush); text-align:center;">Iu Tuyến nhìuuuuuuuuuuuu&nbsp;❤</p>
+    </div>
+  </div>
+</section>
+
+<section id="footer">
+  <div class="footer-text">Happy Birthday, Tuyến ✨</div>
+</section>
+
+<script>
+// ===== 1. HIỆU ỨNG HOA & TIM RƠI (Đã Tối Ưu) =====
+(function initFallingEffect() {
+  const container = document.getElementById('fallingContainer');
+  const items = ['🌸', '💖', '🌹', '❤️', '🍃', '💕'];
+  
+  // Tự động giảm nửa số lượng trên điện thoại
+  const totalItems = window.innerWidth < 768 ? 18 : 28; 
+
+  for (let i = 0; i < totalItems; i++) {
+    createFallingItem();
+  }
+
+  function createFallingItem() { 
+    const el = document.createElement('div'); 
+    el.className = Math.random() > 0.5 ? 'petal' : 'heart-fall'; 
+    el.textContent = items[Math.floor(Math.random() * items.length)]; 
+    
+    const size = Math.random() * 14 + 10; 
+    const left = Math.random() * 100; 
+    const duration = Math.random() * 8 + 8; 
+    const delay = Math.random() * 15; 
+    const drift = (Math.random() - 0.5) * 120; 
+    
+    el.style.cssText = ` 
+      font-size:${size}px; 
+      left:${left}%; 
+      --drift:${drift}px; 
+      animation-duration:${duration}s; 
+      animation-delay:-${delay}s; 
+    `; 
+    container.appendChild(el); 
+  } 
+  // ĐÃ XÓA EventListener 'animationiteration' để giảm Repaint cực đại
+})();
+
+// ===== 2. ẢNH TRÁI TIM TRÔI NỔI TẠI PHẦN 1 (Đã Tối Ưu) =====
+// Giảm số lượng ảnh load vào DOM tùy theo độ phân giải màn hình
+const totalPhotos = window.innerWidth < 768 ? 23 : 23; 
+const photoContainer = document.getElementById('photoContainer');
+
+(function initFloatingPhotos() {
+  for (let i = 1; i <= totalPhotos; i++) {
+    const frame = document.createElement('div');
+    frame.className = 'photo-heart-frame';
+    frame.innerHTML = `<img src="img${i}.JPG" alt="Khoảnh khắc ${i}" loading="lazy">`;
+
+    setRandomParams(frame);
+
+    frame.addEventListener('click', () => openLightbox(i));
+
+    photoContainer.appendChild(frame);
+  }
+
+  // ĐÃ XÓA EventListener 'animationiteration' ở đây
+
+  function setRandomParams(el) {
+    const left = Math.random() * 82; 
+    const duration = Math.random() * 10 + 16; 
+    const delay = Math.random() * 25; 
+    const randX = (Math.random() - 0.5) * 160; 
+    const randR = (Math.random() - 0.5) * 50;  
+    const startScale = Math.random() * 0.2 + 0.8; 
+
+    el.style.left = left + '%';
+    el.style.animationDuration = duration + 's';
+    el.style.animationDelay = -delay + 's'; 
+    
+    // Ghi các thông số vào biến CSS, không ghi đè thuộc tính Transform bằng JS
+    el.style.setProperty('--scale', startScale); 
+    el.style.setProperty('--rand-x', `${randX}px`); 
+    el.style.setProperty('--rand-r', `${randR}deg`); 
+  }
+})();
+
+// ===== 3. LIGHTBOX XEM PHÓNG TO ẢNH =====
+function openLightbox(photoIndex) {
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-img');
+  
+  lbImg.style.opacity = '0';
+  lbImg.src = `img${photoIndex}.JPG`; 
+  
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden'; 
+
+  lbImg.onload = () => {
+      lbImg.style.opacity = '1';
+      lbImg.style.transition = 'opacity 0.3s ease';
+  }
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = ''; 
+}
+
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+});
+
+// ===== 4. HẠT PHÁT SÁNG CHÌM SÂU (Cho máy tính) =====
+(function initBgParticles(){
+  if(window.innerWidth < 768) return; // Ngắt JS khởi tạo trên mobile
+
+  const container = document.getElementById('particles');
+  const colors = ['#e8637a','#f7c5ce','#d4a054','#f0d090','#fff'];
+  for(let i=0; i<15; i++){
+    const el = document.createElement('div');
+    el.className='pt';
+    const size = Math.random()*3+1;
+    el.style.cssText=`
+      width:${size}px; height:${size}px;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      left:${Math.random()*100}%;
+      animation-duration:${Math.random()*15+12}s;
+      animation-delay:${Math.random()*10}s;
+    `;
+    container.appendChild(el);
+  }
+})();
+</script>
+</body>
+</html>
