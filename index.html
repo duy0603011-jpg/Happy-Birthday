@@ -393,7 +393,7 @@ const photoContainer = document.getElementById('photoContainer');
   for (let i = 1; i <= totalPhotos; i++) {
     const frame = document.createElement('div');
     frame.className = 'photo-heart-frame';
-    frame.innerHTML = `<img src="img${i}.JPG" alt="Khoảnh khắc ${i}" loading="lazy">`;
+    frame.innerHTML = `<img src="img${i}.jpg" alt="Khoảnh khắc ${i}" loading="lazy">`;
 
     setRandomParams(frame);
 
@@ -429,7 +429,7 @@ function openLightbox(photoIndex) {
   const lbImg = document.getElementById('lb-img');
   
   lbImg.style.opacity = '0';
-  lbImg.src = `img${photoIndex}.JPG`; 
+  lbImg.src = `img${photoIndex}.jpg`; 
   
   lightbox.classList.add('open');
   document.body.style.overflow = 'hidden'; 
